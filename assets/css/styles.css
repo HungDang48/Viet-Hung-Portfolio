@@ -10,6 +10,7 @@
   --hue-color: 224;
   --first-color: hsl(var(--hue-color), 89%, 60%);
   --second-color: hsl(var(--hue-color), 56%, 12%);
+ 
   /*===== Fuente y tipografia =====*/
   --body-font: "Poppins", sans-serif;
   --big-font-size: 2rem;
@@ -290,57 +291,96 @@ img {
   border-radius: 0.5rem;
   z-index: var(--z-back);
 }
-.skills__html {
-  width: 95%;
+ 
+
+/* ===== PROJECT =====*/
+#projects-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 2rem; /* khoảng cách giữa các project card */
+  padding-bottom: 1rem;
+  scroll-snap-type: x mandatory;
 }
-.skills__css {
-  width: 85%;
+.project__card:hover .project__title,
+.project__card:hover .project__description {
+  color: var(--first-color); /* hoặc #00bcd4, #6c63ff, gì đó tuỳ phối màu */
 }
-.skills__js {
-  width: 65%;
+
+.project__card {
+  flex: 0 0 auto;
+  width: 300px;
+  scroll-snap-align: start;
+  background-color: var(--container-color);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
 }
-.skills__ux {
-  width: 85%;
+.project__card:hover {
+  transform: scale(7.05);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
-.skills__img {
+
+.project__img {
+  width: 100%;
+  height: auto;
   border-radius: 0.5rem;
 }
 
-/* ===== WORK =====*/
-.work__container {
-  row-gap: 2rem;
+.project__title {
+  margin: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
-.work__img {
-  box-shadow: 0px 4px 25px rgba(14, 36, 49, 0.15);
-  border-radius: 0.5rem;
-  overflow: hidden;
+
+.project__description {
+  font-size: 0.9rem;
+  color: var(--text-color-light);
 }
-.work__img img {
-  transition: 1s;
-}
-.work__img img:hover {
-  transform: scale(1.1);
-}
+
 
 /* ===== CONTACT =====*/
-.contact__input {
+.contact__container {
+  display: flex;
+  justify-content: center;
+}
+
+.contact__info-box {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border-radius: 1rem;
+ 
+  max-width: 500px;
   width: 100%;
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-semi);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border: 1.5px solid var(--second-color);
-  outline: none;
-  margin-bottom: var(--mb-4);
 }
-.contact__button {
-  display: block;
-  border: none;
-  outline: none;
-  font-size: var(--normal-font-size);
-  cursor: pointer;
-  margin-left: auto;
+
+.contact__item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  font-size: 1rem;
+  color: var(--text-color);
 }
+
+.contact__item a {
+  color: var(--first-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.contact__item a:hover {
+  text-decoration: underline;
+}
+
+.contact__icon {
+  font-size: 1.2rem;
+  color: var(--first-color);
+}
+
+
 
 /* ===== FOOTER =====*/
 .footer {
@@ -403,11 +443,7 @@ img {
     justify-content: center;
     column-gap: 1rem;
   }
-  .work__container {
-    grid-template-columns: repeat(2, 1fr);
-    column-gap: 2rem;
-    padding-top: 2rem;
-  }
+   
   .contact__form {
     width: 360px;
     padding-top: 2rem;
@@ -484,3 +520,310 @@ img {
     width: 450px;
   }
 }
+/* ===== COVER ===== */
+.cover {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1.8s ease, transform 1.8s ease;
+  width: 100%;
+  margin-top: 50px;
+  overflow: hidden; /* Ngăn tràn nếu có */
+  margin-top: 70px;
+}
+
+.cover__img {
+  width: 100%;         /* Ảnh luôn full chiều ngang */
+  height: auto;        /* Tự co chiều cao theo tỉ lệ gốc */
+  object-fit: cover;   /* Cắt ảnh cho đẹp nếu cần */
+  display: block;      /* Loại bỏ khoảng trắng dưới ảnh */
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+ 
+.cover.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* Giao diện mặc định (light) */
+body {
+  background-color: #fff;
+  color: #000;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* Nút dark mode */
+.theme-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+  transform: scale(1.2);
+}
+.theme-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-btn .icon {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+  transition: transform 0.3s, opacity 0.3s;
+  color: currentColor;
+}
+body.dark-theme .theme-btn .icon {
+  color: #fcd34d; /* vàng nhạt */
+}
+
+.theme-btn:hover .icon {
+  transform: scale(1.8);
+}
+body.dark-theme .l-header {
+  background-color: #1e1e1e; /* hoặc màu khác tuỳ bạn chọn */
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.1); /* tuỳ chọn: điều chỉnh shadow để phù hợp dark mode */
+}
+
+body.dark-theme .nav__logo,
+body.dark-theme .nav__toggle {
+  color: #fff;
+}
+
+body.dark-theme .nav__link {
+  color: #fff;
+}
+body.dark-theme .home__social-icon {
+  color: #ffffff;
+}
+body.dark-theme .skills__icon {
+  filter: brightness(0) invert(1);
+}
+.work__tabs {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.work__tab {
+  background-color: transparent;
+  border: 2px solid var(--first-color);
+  color: var(--text-color);
+  padding: 0.5rem 1.5rem;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+.work__tab.active,
+.work__tab:hover {
+  background-color: var(--first-color);
+  color: #fff;
+}
+/* Animation xuất hiện từ trái */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-500px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.project__card {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: transform 30s ease, opacity 30s ease;
+}
+
+.project__card.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.project__img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.project__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.project__description {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+.hidden {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+.skills__description {
+  text-align: center;
+  font-size: 1rem;
+  margin: 0.5rem 0 1.5rem;
+  color: var(--text-color);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills__wrapper {
+  width: 800px;
+  height: 300px;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding: 1rem;
+ 
+  border-radius: 1rem;
+ 
+}
+
+.skills__cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.skills__card {
+  background-color: var(--container-color);
+  border-radius: 0.75rem;
+  padding: 0.8rem;
+  width: 100px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.skills__card:hover {
+  transform: scale(1.05);
+}
+
+.skills__icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.skills__name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--title-color);
+}
+
+
+/* Wrapper for animations */
+.skills__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Container for all skill cards */
+.skills__cards-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 2rem auto; /* căn giữa */
+  
+}
+
+/* Individual card style */
+.skills__card {
+  background-color: var(--container-color);
+  border-radius: 10px;
+  padding: 1rem;
+  width: 90px;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+   
+} 
+
+/* Delay animation for each card */
+.skills__card:nth-child(1) { animation-delay: 0.2s; }
+.skills__card:nth-child(2) { animation-delay: 0.4s; }
+.skills__card:nth-child(3) { animation-delay: 0.6s; }
+.skills__card:nth-child(4) { animation-delay: 0.8s; }
+.skills__card:nth-child(5) { animation-delay: 1s; }
+.skills__card:nth-child(6) { animation-delay: 1.2s; }
+
+/* Title and description fade down */
+.section-title, .skills__description {
+  opacity: 0;
+  transform: translateY(-30px);
+  animation: fadeDown 0.8s ease forwards;
+}
+
+.section-title { animation-delay: 0s; }
+.skills__description { animation-delay: 0.2s; }
+
+/* Keyframes */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .skills__cards-container {
+    max-width: 100%;
+    gap: 0.75rem;
+  }
+  .skills__card {
+    width: 100px;
+    height: 90px;
+    font-size: 0.9rem;
+  }
+}
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-light);
+}
+
+
