@@ -252,6 +252,30 @@ img {
 }
 
 /* ===== SKILLS =====*/
+body.dark-theme .skills__card {
+  background-color: #1e1e1e; /* hoặc màu tối bạn muốn */
+  color: #fdfdfd;
+  box-shadow: 0px 4px 25px rgba(253, 253, 253, 0.1); /* nhẹ nhàng cho dark mode */
+  transition: background-color 0.3s, color 0.3s;
+}
+/* Dark mode: đảo màu icon ảnh và <i> icon luôn */
+body.dark-theme .skills__icon:not(.no-invert) {
+  filter: invert(1) brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+/* Dark mode cho ảnh trong skills__card */
+body.dark-theme .skills__card img.skills__icon {
+  filter: invert(1) brightness(0.8);
+  transition: filter 0.3s;
+}
+body.dark-theme .skills__card img.skills__icon:not(.no-invert) {
+  filter: invert(1) brightness(0.8);
+}
+
+body.dark-theme .skills__icon {
+  filter: brightness(1.2);
+}
 .skills__container {
   row-gap: 2rem;
   text-align: center;
@@ -342,45 +366,82 @@ img {
 
 
 /* ===== CONTACT =====*/
-.contact__container {
-  display: flex;
-  justify-content: center;
-}
-
+/* Contact Section */
 .contact__info-box {
-  background-color: var(--container-color);
-  padding: 2rem;
-  border-radius: 1rem;
- 
-  max-width: 500px;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
 }
 
-.contact__item {
+.contact__card {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.2rem;
-  font-size: 1rem;
-  color: var(--text-color);
+  background-color: #fff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.contact__item a {
-  color: var(--first-color);
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.contact__item a:hover {
-  text-decoration: underline;
+.contact__card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .contact__icon {
-  font-size: 1.2rem;
-  color: var(--first-color);
+  font-size: 1.4rem;
+  color: #00adb5;
+  min-width: 30px;
 }
 
+.contact__card a {
+  color: inherit;
+  text-decoration: none;
+  word-break: break-word;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
 
+.contact__card a:hover {
+  border-color: #00adb5;
+}
+
+@media screen and (max-width: 768px) {
+  .contact__card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 1rem;
+  }
+}
+/* DARK MODE CHO CARD */
+/* Đổi tất cả `body.dark-mode` thành `body.dark-theme` trong CSS */
+
+body.dark-theme .contact__card {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-theme .contact__card a {
+  color: #ffffff;
+}
+
+body.dark-theme .contact__card a:hover {
+  border-color: #00adb5;
+}
+
+body.dark-theme .contact__icon {
+  color: #00adb5;
+}
+
+body, .contact__card {
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
 
 /* ===== FOOTER =====*/
 .footer {
@@ -825,5 +886,64 @@ body.dark-theme .skills__icon {
   margin-bottom: 2rem;
   color: var(--text-light);
 }
+/* EDUCATION */
+.education-section {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.education-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.education-item {
+  background-color: #f1f5f9;
+  padding: 1.5rem;
+  border-left: 4px solid #4f46e5;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  
+}
+
+.education-item h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.25rem;
+}
+
+.education-item p {
+  margin: 0.25rem 0;
+  font-size: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .education-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .education-item {
+    padding: 1rem;
+  }
+
+  .education-item h3 {
+    font-size: 1.1rem;
+  }
+
+  .education-item p {
+    font-size: 0.95rem;
+  }
+}
+
+/* Dark mode support */
+body.dark-mode .education-item {
+  background-color: #1f2937;
+  color: #f3f4f6;
+  border-color: #818cf8;
+}
+
 
 

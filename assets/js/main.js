@@ -92,6 +92,7 @@ toggleBtn.addEventListener("click", () => {
 const tabs = document.querySelectorAll('.work__tab');
 const projectContainer = document.querySelector('.work__container');
 const seriesContainer = document.querySelector('.series__container');
+ 
 
 tabs.forEach(tab => {
     tab.addEventListener('click', () => {
@@ -192,7 +193,24 @@ ScrollReveal().reveal('.section-title', {
     delay: 200,
     reset: false
   });
-  
+//   EDUCATION
+ScrollReveal().reveal('.education-item', {
+    origin: 'top',       // từ trên xuống
+    distance: '50px',
+    duration: 1000,      // thời gian (ms)
+    easing: 'ease-in-out',
+    interval: 200,       // delay giữa các item
+    reset: false         // không lặp lại khi cuộn lên
+  });
+  ScrollReveal().reveal('.sr-contact', {
+    origin: 'bottom',
+    distance: '40px',
+    duration: 1000,
+    interval: 150,
+    easing: 'ease-out',
+    reset: false,
+    opacity: 0
+  });
   
 projectCards.forEach(card => cardObserver.observe(card));
 
