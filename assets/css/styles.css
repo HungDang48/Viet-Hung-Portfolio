@@ -26,7 +26,7 @@
   --z-back: -10;
   --z-fixed: 100;
 }
-@media screen and (min-width: 968px) {
+@media screen and (min-width: 300px) {
   :root {
     --big-font-size: 3.5rem;
     --h2-font-size: 2rem;
@@ -123,7 +123,7 @@ img {
   align-items: center;
   font-weight: var(--font-semi);
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 300px) {
   .nav__menu {
     position: fixed;
     top: var(--header-height);
@@ -410,7 +410,7 @@ body.dark-theme .skills__icon {
   border-color: #00adb5;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 300px) {
   .contact__card {
     flex-direction: column;
     align-items: flex-start;
@@ -476,7 +476,7 @@ body, .contact__card {
     width: 200px;
   }
 }
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 300px) {
   .home {
     padding: 4rem 0 2rem;
   }
@@ -513,7 +513,7 @@ body, .contact__card {
     justify-items: center;
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 320px) {
   body {
     margin: 0;
   }
@@ -569,7 +569,7 @@ body, .contact__card {
     column-gap: 2rem;
   }
 }
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 400px) {
   .bd-grid {
     margin-left: auto;
     margin-right: auto;
@@ -862,7 +862,7 @@ body.dark-theme .skills__icon {
 }
 
 /* Responsive */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 300px) {
   .skills__cards-container {
     max-width: 100%;
     gap: 0.75rem;
@@ -920,7 +920,7 @@ body.dark-theme .skills__icon {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 300px) {
   .education-section {
     padding: 1.5rem 1rem;
   }
