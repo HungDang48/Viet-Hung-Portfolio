@@ -176,6 +176,19 @@ ScrollReveal().reveal('.section-title', {
     easing: 'ease-in-out',
     reset: false
   });
+  var typed = new Typed('#typing', {
+    strings: [
+      "Hi, I'm <span class='home__title-color'>Hung</span>", 
+      "Frontend Developer"
+    ],
+    typeSpeed: 60,         // Tốc độ gõ chữ
+    backSpeed: 40,        // Tốc độ xóa chữ
+    backDelay: 1500,      // Thời gian giữ chữ trước khi xóa
+    startDelay: 500,      // Thời gian trì hoãn khi bắt đầu gõ
+    loop: true,           // Lặp lại vô hạn
+    showCursor: true,     // Hiện con trỏ
+    cursorChar: '|',      // Ký tự của con trỏ
+  });
   
   // Reveal từng card kỹ năng từ dưới lên, lần lượt
   ScrollReveal().reveal('.skills__card', {
@@ -211,7 +224,15 @@ ScrollReveal().reveal('.education-item', {
     reset: false,
     opacity: 0
   });
-  
+  window.addEventListener('scroll', function () {
+    const button = document.querySelector('.button-cv');
+    const buttonPosition = button.getBoundingClientRect().top;
+    const screenHeight = window.innerHeight;
+
+    if (buttonPosition < screenHeight - 100) {
+        button.classList.add('animate-rotate');
+    }
+});
 projectCards.forEach(card => cardObserver.observe(card));
 
 // Gắn observer vào các thẻ bạn muốn animate
