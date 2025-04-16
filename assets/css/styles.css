@@ -762,41 +762,88 @@ body.dark-theme {
 }
 
 /* Nút dark mode */
-.theme-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-  transition: transform 0.3s;
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.theme-btn:hover {
-  transform: scale(1.2);
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
 }
-.theme-btn {
-  background: none;
-  border: none;
+
+/* Slider */
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
   cursor: pointer;
-  padding: 0.5rem;
+  transition: background-color 0.4s;
+}
+
+/* Knob (nút tròn chứa icon) */
+.knob {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  overflow: hidden; /* thêm nếu icon bị tràn */
 }
 
-.theme-btn .icon {
-  width: 24px;
-  height: 24px;
+
+.icon {
+  width: 18px;
+  height: 18px;
   stroke-width: 2;
-  transition: transform 0.3s, opacity 0.3s;
-  color: currentColor;
-}
-body.dark-theme .theme-btn .icon {
-  color: #fcd34d; /* vàng nhạt */
+  transition: opacity 0.3s, stroke 0.3s;
 }
 
-.theme-btn:hover .icon {
-  transform: scale(1.8);
+/* Hiện icon mặt trời trong light mode */
+.sun-icon {
+  opacity: 1;
+  stroke: black;
+  transition: opacity 0.3s, stroke 0.3s;
 }
+
+.moon-icon {
+  opacity: 0;
+  stroke: gold;
+  transition: opacity 0.3s, stroke 0.3s;
+}
+
+/* Checked (dark mode) */
+.switch input:checked + .slider {
+  background-color: #666;
+}
+
+/* Icon chuyển */
+.switch input:checked + .slider .knob {
+  transform: translateX(26px);
+}
+
+.switch input:checked + .slider .knob .sun-icon {
+  opacity: 0;
+}
+
+.switch input:checked + .slider .knob .moon-icon {
+  opacity: 1;
+}
+
+
 body.dark-theme .l-header {
   background-color: #1e1e1e; /* hoặc màu khác tuỳ bạn chọn */
   box-shadow: 0 1px 4px rgba(255, 255, 255, 0.1); /* tuỳ chọn: điều chỉnh shadow để phù hợp dark mode */
@@ -1006,6 +1053,19 @@ body.dark-mode .education-item {
 .button-cv.animate-rotate {
   animation: rotateIn 2s ease-in-out forwards;
 }
+.home__description {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-color, #333);
+  line-height: 1.6;
+  max-width: 500px;
+}
+
+body.dark-theme .home__description {
+  color: #ddd; /* hoặc màu nhạt phù hợp */
+}
+
 
 
 

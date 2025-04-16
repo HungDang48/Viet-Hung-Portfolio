@@ -40,15 +40,22 @@
                 <!-- Nút chuyển dark mode -->
 <!-- Nút chuyển dark mode -->
                <div class="nav__theme">
-                <button id="theme-toggle" class="theme-btn" aria-label="Toggle dark mode">
-                 <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                <circle cx="12" cy="12" r="5" />
-                 <path d="M12 1v2 M12 21v2 M4.22 4.22l1.42 1.42 M18.36 18.36l1.42 1.42 M1 12h2 M21 12h2 M4.22 19.78l1.42-1.42 M18.36 5.64l1.42-1.42" />
-                 </svg>
-                <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: none;">
-                  <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 000 14 9 9 0 008.79-4.21z" />
-                </svg>
-               </button>
+                <label class="switch">
+                  <input type="checkbox" id="theme-toggle" aria-label="Toggle dark mode">
+                  <span class="slider">
+                    <span class="knob">
+                      <svg id="icon-sun" class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black">
+                        <circle cx="12" cy="12" r="5" />
+                        <path d="M12 1v2 M12 21v2 M4.22 4.22l1.42 1.42 M18.36 18.36l1.42 1.42 M1 12h2 M21 12h2 M4.22 19.78l1.42-1.42 M18.36 5.64l1.42-1.42" />
+                      </svg>
+                      <svg id="icon-moon" class="icon moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="gold">
+                        <path d="M21 12.79A9 9 0 0112.21 3a7 7 0 000 14 9 9 0 008.79-4.21z" />
+                      </svg>
+                    </span>
+                  </span>
+                </label>
+                
+                
            </div>
   
               </div>
@@ -65,11 +72,18 @@
             <!--===== HOME =====-->
             <section class="home bd-grid" id="home">
               <div class="home__data">
-                  <h1 class="home__title">
-                      <span id="typing"></span>
-                  </h1>
-                  <a href="#contact" class="button">Contact</a>
+                <h1 class="home__title">
+                  <span id="typing"></span>
+                </h1>
+              
+                <!-- PHẦN GIỚI THIỆU THÊM VÀO -->
+                <p class="home__description">
+                  I recently graduated with a degree in Information Technology from Duy Tan University. I'm passionate about building websites and always looking for ways to improve my skills in both Front-end and Back-end development. In the short term, my goal is to become a professional Front-end developer, and in the long run, I aspire to take on roles such as tech lead or project manager.
+                </p>
+              
+                <a href="#contact" class="button">Contact</a>
               </div>
+              
           
               <div class="home__social">
                   <a href="https://www.linkedin.com/in/hung-dang48" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
