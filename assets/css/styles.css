@@ -471,12 +471,10 @@ body.dark-theme .skills__icon {
 
 /* ===== PROJECT =====*/
 #projects-container {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  gap: 2rem; /* khoảng cách giữa các project card */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
   padding-bottom: 1rem;
-  scroll-snap-type: x mandatory;
 }
 .project__card:hover .project__title,
 .project__card:hover .project__description {
@@ -484,9 +482,6 @@ body.dark-theme .skills__icon {
 }
 
 .project__card {
-  flex: 0 0 auto;
-  width: 300px;
-  scroll-snap-align: start;
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: 1rem;
@@ -495,7 +490,7 @@ body.dark-theme .skills__icon {
   cursor: pointer;
 }
 .project__card:hover {
-  transform: scale(7.05);
+  transform: scale(1.05); /* fix nhầm scale quá lớn 7.05 */
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -514,6 +509,37 @@ body.dark-theme .skills__icon {
 .project__description {
   font-size: 0.9rem;
   color: var(--text-color-light);
+}
+.project__card {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: transform 30s ease, opacity 30s ease;
+}
+
+.project__card.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+.project__img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.project__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--title-color);
+  margin-bottom: 0.5rem;
+}
+
+.project__description {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.5;
 }
 
 
@@ -893,37 +919,7 @@ body.dark-theme .home__social-icon {
   }
 }
 
-.project__card {
-  opacity: 0;
-  transform: translateX(-50px);
-  transition: transform 30s ease, opacity 30s ease;
-}
 
-.project__card.show {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-
-.project__img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.project__title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--title-color);
-  margin-bottom: 0.5rem;
-}
-
-.project__description {
-  font-size: 1rem;
-  color: var(--text-color);
-  line-height: 1.5;
-}
 .hidden {
   opacity: 0;
   transform: translateX(-50px);
