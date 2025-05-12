@@ -233,65 +233,7 @@ ScrollReveal().reveal('.education-item', {
         button.classList.add('animate-rotate');
     }
 });
-projectCards.forEach(card => cardObserver.observe(card));
-const translations = {
-    vi: {
-      home: "Trang chủ",
-      about: "Giới thiệu",
-      skills: "Kỹ năng",
-      projects: "Dự án",
-      contact: "Liên hệ",
-      description: "Tôi vừa tốt nghiệp chuyên ngành Công nghệ Thông tin tại Đại học Duy Tân. Tôi đam mê xây dựng các trang web và luôn tìm kiếm cách cải thiện kỹ năng cả về Front-end và Back-end. Trong ngắn hạn, mục tiêu của tôi là trở thành lập trình viên Front-end chuyên nghiệp và về lâu dài, tôi mong muốn đảm nhiệm các vị trí như trưởng nhóm kỹ thuật hoặc quản lý dự án.",
-      button: "Liên hệ",
-      aboutTitle: "Giới thiệu",
-      aboutSubtitle: "Mình là Hưng",
-      aboutText: "Chào, tôi là Hưng – một lập trình viên web với đam mê thiết kế sạch và mã hiệu quả. Tôi chuyên về phát triển Frontend với React, Next.js, và TypeScript, và có kinh nghiệm xây dựng API có thể mở rộng. Tôi luôn học hỏi và nỗ lực tạo ra những trải nghiệm web nhanh chóng, thân thiện với người dùng.",
-      projectsTitle: "Dự án",
-      projectsSubtitle: "Một số dự án tôi đã thực hiện gần đây",
-      project1Title: "THƯƠNG MẠI ĐIỆN TỬ",
-      project1Description: "Nền tảng thương mại điện tử với giao diện thân thiện...",
-      project2Title: "THỜI TIẾT",
-      project2Description: "Ứng dụng dự báo thời tiết đáp ứng...",
-      project3Title: "LẬT THẺ GHI NHỚ",
-      project3Description: "Trò chơi lật thẻ ghi nhớ với nhiều cấp độ...",
-      project4Title: "MÁY TÍNH",
-      project4Description: "Ứng dụng máy tính đơn giản và đẹp mắt...",
-      project5Title: "DANH SÁCH CÔNG VIỆC",
-      project5Description: "Ứng dụng quản lý công việc đơn giản...",
-      contactTitle: "Liên hệ",
-      contactLocation: "Thành phố Hồ Chí Minh, Việt Nam",
-      footerTitle: "Hưng",
-      footerCopy: "© Hưng. Đã đăng ký bản quyền"
-    },
-    en: {
-      home: "Home",
-      about: "About",
-      skills: "Skills",
-      projects: "Projects",
-      contact: "Contact",
-      description: "I recently graduated with a degree in Information Technology from Duy Tan University. I'm passionate about building websites and always looking for ways to improve my skills in both Front-end and Back-end development. In the short term, my goal is to become a professional Front-end developer, and in the long run, I aspire to take on roles such as tech lead or project manager.",
-      button: "Contact",
-      aboutTitle: "About",
-      aboutSubtitle: "I'm Hưng",
-      aboutText: "Hi, I'm Hung — a web developer with a passion for clean design and efficient code. I specialize in frontend development using React, Next.js, and TypeScript, and have experience building scalable APIs. I'm always learning and striving to create fast, user-friendly web experiences.",
-      projectsTitle: "Projects",
-      projectsSubtitle: "Some of the projects I've worked on recently",
-      project1Title: "CLOTHES ECOMMERCE",
-      project1Description: "An e-commerce platform with a user-friendly interface and full-featured admin panel built with React, TypeScript, and Redux.",
-      project2Title: "WEATHER NOW",
-      project2Description: "Weather Now is a responsive weather forecasting app built with ReactJS that provides real-time weather information, with a dynamic interface that changes based on current weather conditions.",
-      project3Title: "MEMORY CARD",
-      project3Description: "A memory card flip game with multiple levels...",
-      project4Title: "CALCULATOR",
-      project4Description: "A simple and stylish calculator app...",
-      project5Title: "TODO LIST",
-      project5Description: "A simple and Todo list built with ReactJS...",
-      contactTitle: "Contact",
-      contactLocation: "Ho Chi Minh City, Vietnam",
-      footerTitle: "Hung",
-      footerCopy: "© Hung. All rights reserved"
-    }
-  };
+ 
   
   
   let currentLanguage = "en";
