@@ -234,6 +234,88 @@ ScrollReveal().reveal('.education-item', {
     }
 });
 projectCards.forEach(card => cardObserver.observe(card));
+const translations = {
+    vi: {
+      home: "Trang chủ",
+      about: "Giới thiệu",
+      skills: "Kỹ năng",
+      projects: "Dự án",
+      contact: "Liên hệ",
+      description: "Tôi vừa tốt nghiệp chuyên ngành Công nghệ Thông tin tại Đại học Duy Tân. Tôi đam mê xây dựng các trang web và luôn tìm kiếm cách cải thiện kỹ năng cả về Front-end và Back-end. Trong ngắn hạn, mục tiêu của tôi là trở thành lập trình viên Front-end chuyên nghiệp và về lâu dài, tôi mong muốn đảm nhiệm các vị trí như trưởng nhóm kỹ thuật hoặc quản lý dự án.",
+      button: "Liên hệ",
+      aboutTitle: "Giới thiệu",
+      aboutSubtitle: "Mình là Hưng",
+      aboutText: "Chào, tôi là Hưng – một lập trình viên web với đam mê thiết kế sạch và mã hiệu quả. Tôi chuyên về phát triển Frontend với React, Next.js, và TypeScript, và có kinh nghiệm xây dựng API có thể mở rộng. Tôi luôn học hỏi và nỗ lực tạo ra những trải nghiệm web nhanh chóng, thân thiện với người dùng.",
+      projectsTitle: "Dự án",
+      projectsSubtitle: "Một số dự án tôi đã thực hiện gần đây",
+      project1Title: "THƯƠNG MẠI ĐIỆN TỬ",
+      project1Description: "Nền tảng thương mại điện tử với giao diện thân thiện...",
+      project2Title: "THỜI TIẾT",
+      project2Description: "Ứng dụng dự báo thời tiết đáp ứng...",
+      project3Title: "LẬT THẺ GHI NHỚ",
+      project3Description: "Trò chơi lật thẻ ghi nhớ với nhiều cấp độ...",
+      project4Title: "MÁY TÍNH",
+      project4Description: "Ứng dụng máy tính đơn giản và đẹp mắt...",
+      project5Title: "DANH SÁCH CÔNG VIỆC",
+      project5Description: "Ứng dụng quản lý công việc đơn giản...",
+      contactTitle: "Liên hệ",
+      contactLocation: "Thành phố Hồ Chí Minh, Việt Nam",
+      footerTitle: "Hưng",
+      footerCopy: "© Hưng. Đã đăng ký bản quyền"
+    },
+    en: {
+      home: "Home",
+      about: "About",
+      skills: "Skills",
+      projects: "Projects",
+      contact: "Contact",
+      description: "I recently graduated with a degree in Information Technology from Duy Tan University. I'm passionate about building websites and always looking for ways to improve my skills in both Front-end and Back-end development. In the short term, my goal is to become a professional Front-end developer, and in the long run, I aspire to take on roles such as tech lead or project manager.",
+      button: "Contact",
+      aboutTitle: "About",
+      aboutSubtitle: "I'm Hưng",
+      aboutText: "Hi, I'm Hung — a web developer with a passion for clean design and efficient code. I specialize in frontend development using React, Next.js, and TypeScript, and have experience building scalable APIs. I'm always learning and striving to create fast, user-friendly web experiences.",
+      projectsTitle: "Projects",
+      projectsSubtitle: "Some of the projects I've worked on recently",
+      project1Title: "CLOTHES ECOMMERCE",
+      project1Description: "An e-commerce platform with a user-friendly interface and full-featured admin panel built with React, TypeScript, and Redux.",
+      project2Title: "WEATHER NOW",
+      project2Description: "Weather Now is a responsive weather forecasting app built with ReactJS that provides real-time weather information, with a dynamic interface that changes based on current weather conditions.",
+      project3Title: "MEMORY CARD",
+      project3Description: "A memory card flip game with multiple levels...",
+      project4Title: "CALCULATOR",
+      project4Description: "A simple and stylish calculator app...",
+      project5Title: "TODO LIST",
+      project5Description: "A simple and Todo list built with ReactJS...",
+      contactTitle: "Contact",
+      contactLocation: "Ho Chi Minh City, Vietnam",
+      footerTitle: "Hung",
+      footerCopy: "© Hung. All rights reserved"
+    }
+  };
+  
+  
+  let currentLanguage = "en";
+
+  const languageToggleButton = document.getElementById("language-toggle");
+  
+  languageToggleButton.addEventListener("click", () => {
+    currentLanguage = currentLanguage === "en" ? "vi" : "en";
+    languageToggleButton.textContent = currentLanguage.toUpperCase();
+  
+    // Update nav dynamically
+    const navItems = document.querySelectorAll(".nav__list li a");
+    const keys = ["home", "about", "skills", "projects", "contact"];
+  
+    navItems.forEach((link, index) => {
+      link.textContent = translations[currentLanguage][keys[index]];
+    });
+  
+    // Update home description
+    document.querySelector(".home__description").textContent = translations[currentLanguage].description;
+  
+    // Update contact button
+    document.querySelector(".home__data .button").textContent = translations[currentLanguage].button;
+  });
 
 // Gắn observer vào các thẻ bạn muốn animate
 document.querySelectorAll('.project__card').forEach(el => observer.observe(el));
@@ -243,3 +325,39 @@ sr.reveal('.home__data, .about__img, .skills__subtitle, .skills__text', {});
 sr.reveal('.home__img, .about__subtitle, .about__text, .skills__img', { delay: 400 });
 sr.reveal('.home__social-icon', { interval: 200 });
 sr.reveal('.skills__data, .work__img, .contact__input', { interval: 200 }); 
+
+// Projects section
+const projectsTitle = document.querySelector("#projects .section-title");
+if (projectsTitle) projectsTitle.textContent = translations[currentLanguage].projectsTitle;
+const projectsSubtitle = document.querySelector("#projects .section-subtitle");
+if (projectsSubtitle) projectsSubtitle.textContent = translations[currentLanguage].projectsSubtitle;
+
+// Project cards
+const projectTitles = document.querySelectorAll('.project__title');
+const projectDescriptions = document.querySelectorAll('.project__description');
+const projectTitleKeys = [
+  'project1Title', 'project2Title', 'project3Title', 'project4Title', 'project5Title'
+];
+const projectDescKeys = [
+  'project1Description', 'project2Description', 'project3Description', 'project4Description', 'project5Description'
+];
+projectTitles.forEach((el, idx) => {
+  if (translations[currentLanguage][projectTitleKeys[idx]]) el.textContent = translations[currentLanguage][projectTitleKeys[idx]];
+});
+projectDescriptions.forEach((el, idx) => {
+  if (translations[currentLanguage][projectDescKeys[idx]]) el.textContent = translations[currentLanguage][projectDescKeys[idx]];
+});
+
+// Contact section
+const contactTitle = document.querySelector("#contact .section-title");
+if (contactTitle) contactTitle.textContent = translations[currentLanguage].contactTitle;
+const contactLocation = document.querySelector('.contact__card span');
+if (contactLocation) contactLocation.textContent = translations[currentLanguage].contactLocation;
+
+// Footer
+const footerTitle = document.querySelector('.footer__title');
+if (footerTitle) footerTitle.textContent = translations[currentLanguage].footerTitle;
+const footerCopy = document.querySelector('.footer__copy');
+if (footerCopy) footerCopy.textContent = translations[currentLanguage].footerCopy;
+
+ 

@@ -1186,6 +1186,37 @@ body.dark-theme .home__description {
   color: #ddd; /* hoặc màu nhạt phù hợp */
 }
 
+/* Nút chuyển đổi ngôn ngữ */
+.nav__language {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+#language-toggle {
+  background: linear-gradient(90deg, #4f46e5 0%, #38bdf8 100%);
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.15);
+  transition: background 0.3s, transform 0.2s;
+  outline: none;
+}
+
+#language-toggle:hover, #language-toggle:focus {
+  background: linear-gradient(90deg, #38bdf8 0%, #4f46e5 100%);
+  transform: translateY(-2px) scale(1.05);
+}
+
+body.dark-theme #language-toggle {
+  background: linear-gradient(90deg, #1e293b 0%, #4f46e5 100%);
+  color: #fff;
+}
+
 
 
 
